@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build all",
+      "dependsOn": [
+        "build client",
+        "build server"
+      ],
+      "dependsOrder": "sequence",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "build client",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "client.c",
+        "-o",
+        "client.exe",
+        "-lws2_32"
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build server",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "server.c",
+        "-o",
+        "server.exe",
+        "-lws2_32"
+      ],
+      "problemMatcher": [],
+      "group": "build"
+    }
+  ]
+}
